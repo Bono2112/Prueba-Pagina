@@ -15,7 +15,7 @@ img{
 }
 
 body {
-  background-image: url(/imagenes/pexels-karolina-grabowska-4814061.jpg);
+  background-image: url(../imagenes/pexels-karolina-grabowska-4814061.jpg);
   background-position: bottom center;
   background-repeat: no-repeat;
   background-size: cover;
