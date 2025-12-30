@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/png" href="../imagenes/favicon.png">
+    <title>Eusta</title>
+</head>
+<body>
+  <header>
+    <p id="eustalogo">Eusta</p>
+    <div class="menu">
+      <nav>
+        <ul>
+          <li><a href="../index.html"> inicio </a></li>
+          <li><a href="Organigrama/"> Organigrama </a></li>
+          <li><a href="index3.html"> Funcionamiento</a></li>
+          <li><a href="index4.html"> Documentos </a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div id="contenedor">
+    <div class="image-container" id="imageContainer">
+      <h1> Organigrama de la empresa</h1>
+      <img id="zoomImage" src="../imagenes/empreorgeus.drawio.svg" alt="Imagen con zoom" draggable="false">
+    </div>
+    <div class="controls">
+      <button onclick="zoomIn()">Zoom +</button>
+      <button onclick="zoomOut()">Zoom -</button>
+      <button id="resetBtn" onclick="resetZoom()">Reset</button>
+    </div>
+  </div>
+  <script>
+    const image = document.getElementById('zoomImage');
+    const container = document.getElementById('imageContainer');
+    let scale = 1;
+    let isDragging = false;
+    let startPos = { x: 0, y: 0 };
+    let currentPos = { x: 0, y: 0 };
+
+    // Funciones de zoom
+    function setImageTransform() {
+        image.style.transform = `scale(${scale}) translate(${currentPos.x}px, ${currentPos.y}px)`;
+    }
+
+    function zoomIn() {
+        scale = Math.min(scale + 0.5, 4);
+        setImageTransform();
+    }
+
+    function zoomOut() {
+        scale = Math.max(scale - 0.5, 0.5);
+        setImageTransform();
+    }
+
+    function resetZoom() {
+        scale = 1;
+        currentPos = { x: 0, y: 0 };
+        setImageTransform();
+    }
+
+    // Manejo del zoom con la rueda del mouse
+    container.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        const delta = e.deltaY * -0.01;
+        scale = Math.min(Math.max(0.5, scale + delta), 4);
+        setImageTransform();
+    });
+
+    // Manejo del arrastre
+    container.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startPos = {
+            x: e.clientX - currentPos.x,
+            y: e.clientY - currentPos.y
+        };
+        container.style.cursor = 'grabbing';
+    });
+
+    document.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        
+        currentPos = {
+            x: (e.clientX - startPos.x),
+            y: (e.clientY - startPos.y)
+        };
+        setImageTransform();
+    });
+
+    document.addEventListener('mouseup', () => {
+        isDragging = false;
+        container.style.cursor = 'grab';
+    });
+
+    // Prevenir el comportamiento predeterminado del arrastre de imágenes
+    image.addEventListener('dragstart', (e) => e.preventDefault());
+</script>
+  <footer>
+    <p>
+    Correo electrónico: contacto@eusta.com
+  </p>
+  <p>Teléfono: +54 5465 2105</p>
+  </footer>   
+    
+</body>
+</html>
