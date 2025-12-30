@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/png" href="../imagenes/favicon.png">
+  <title>Eusta</title>
+</head>
+<body>
+  <header>
+    <p id="eustalogo">Eusta</p>
+    <div class="menu">
+      <nav>
+        <ul>
+          <li><a href="../index.html"> inicio </a></li>
+          <li><a href="../Organigrama/"> Organigrama </a></li>
+          <li><a href="../Funcionamiento/"> Funcionamiento</a></li>
+          <li><a href="index.html"> Documentos </a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <div id="contenedor">
+    <h1>Documentos</h1>
+    </div>
+    <div id="imageModal" class="modal">
+      <span class="close">&times;</span>
+      <div class="modal-nav prev">&#10094;</div>
+      <div class="modal-nav next">&#10095;</div>
+      <div class="zoom-controls">
+          <button class="zoom-btn" id="zoomIn">+</button>
+          <button class="zoom-btn" id="zoomOut">-</button>
+          <button class="zoom-btn" id="resetZoom">Reset</button>
+      </div>
+      <div class="modal-container">
+          <img class="modal-content" id="imgZoom">
+      </div>
+  </div>
+    <form>
+        <select id="selector-imagen" onchange="mostrarImagen()">
+            <option value="">Selecciona un documento </option>
+            <option value="SoliComp">Solicitud de compra</option>
+            <option value="remito">Remito</option>
+            <option value="OrdComp">Orden de compra</option>
+            <option value="Fact">Factura</option>
+            <option value="OrdFabr">Orden de fabricación</option>
+            <option value="OrdPag">Orden de pago</option>
+            <option value="RecPagp"> Recibo de pago</option>
+            <option value="RecMat">Informe de recepción de material</option>
+            <option value="NotaPed"> Nota de pedido</option>
+            <option value="cheque"> Cheque </option>
+            <option value="echeck"> E-check</option>
+            <option value="orddesp">Orden de despacho</option>
+            <option value="hojruta"> Hoja de ruta</option>
+            <option value="picklist"> Picking list</option>
+        </select>
+    </form>
+
+    <!-- Contenedores para cada imagen -->
+    <div id="SoliComp" class="imagen-container">
+        <img src="../imagenes/SoliComp.png" alt="Solicitud de compra" class="zoomable">
+       <h2 class="titulo-imagen">Informacion</h2>
+        <p class="titulo-imagen"> documento interno que autoriza al departamento de compras a comprar artículos o servicios. Una vez aprobada una solicitud de compra, se puede usar para generar una orden de compra.</p>
+    </div>
+
+    <div id="remito" class="imagen-container">
+        <img src="../imagenes/remito3.png" alt="Remito" class="zoomable">
+        <h2 class="titulo-imagen">Informacion</h2>
+        <p class="titulo-imagen"> documento de carácter mercantil que es emitido con el objetivo de acreditar el envío de mercancías o la prestación de un servicio. Este comprobante lo elabora el vendedor y es entregado al comprador o receptor, quien lo firma para dejar constancia de que los productos fueron recibidos correctamente.
+        <br>
+        <br>
+        Cabe destacar que esta es una herramienta de control y no debe confundirse con una factura, la cual tiene una función tributaria y fiscal.</p>
+    </div>
+
+    <div id="OrdComp" class="imagen-container">
+        <img src="../imagenes/OrdComp.png" alt="Orden de compra" class="zoomable">
+        <h2 class="titulo-imagen">Informacion</h2>
+        <p class="titulo-imagen"> Una orden de compra es un documento legal que emite un comprador a un vendedor para informar las especificaciones de una transacción determinada. Detalla los términos de la compra como cantidad, descripción de productos o servicios, precio unitario, plazos, forma de entrega y cualquier otra información relevante. </p>
+    </div>
+
+    <div id="Fact" class="imagen-container">
+        <img src="../imagenes/fact3.jpg" alt="Factura" class="zoomable">
+        <h2 class="titulo-imagen">Informacion</h2>
+        <p class="titulo-imagen"> Se trata de un documento comercial que un vendedor emite a un comprador para reclamar el pago. En ella aparece un resumen detallado de los productos y servicios entregados, aparte de los importes adeudados por ellos, y puede servir como un registro legal de una transacción.
+        <br>
+        <br>
+        Las facturas son importantes para la contabilidad financiera y las declaraciones fiscales. Ayudan a las empresas a realizar un seguimiento de las ventas, supervisar el flujo de bienes y servicios, gestionar el flujo de efectivo y crear informes financieros.</p>
+    </div>
+
+    <div id="OrdFabr" class="imagen-container">
+      <img src="../imagenes/Ordendefabricacion.png" alt="Orden de fabricación" class="zoomable">
+      <h2 class="titulo-imagen">Informacion</h2>
+      <p class="titulo-imagen"> Es el documento que una empresa utiliza para orientar la fabricación de un producto. Allí se especifica el conjunto organizado de pedidos y las orientaciones para la fabricación del mismo.</p>
+    </div>
+
+    <div id="OrdPag" class="imagen-container">
+      <img src="../imagenes/ordenpago.png" alt="Orden de pago" class="zoomable">
+      <h2 class="titulo-imagen">Informacion</h2>
+      <p class="titulo-imagen">Una orden de pago es la que hace una persona física o jurídica (ordenante) a su entidad bancaria, para que inmediatamente ponga a disposición de un tercero una cantidad determinada.
+      <br>
+      Para tramitar una orden de pago el ordenante tiene que solicitar una transferencia en su banco tramitando los siguientes datos:
+      <br>
+      Datos del pagador, del cobrador, la cuantía en números y letras, la moneda de la transferencia, datos del banco y el código Swift o bic.
+      </p>
+    </div>
+
+    <div id="RecPagp" class="imagen-container">
+        <img src="../imagenes/Recibo.jpg" alt="Recibo de pago" class="zoomable">
+        <h2 class="titulo-imagen">Informacion</h2>
+        <p class="titulo-imagen"> documento que acredita el pago de una determinada cantidad de dinero, emitido por la persona acreedora (quien recibe el dinero o emite la factura por un bien o servicio), y dirigido a la persona deudora (quien paga, es decir al receptor del bien o el servicio). El objetivo del recibo es dejar constancia de la realización de un abono que estaba pendiente.</p>
+    </div>
+
+    <div id="RecMat" class="imagen-container">
+        <img src="../imagenes/Informe-de-Recepcion.jpg" alt="Recepcion de material" class="zoomable">
+        <h2 class="titulo-imagen">Informacion</h2>
+        <p class="titulo-imagen"> documento utilizado para hacer un seguimiento de los materiales recibidos de los diferentes proveedores cada vez que hay entregas</p>
+        <p class="titulo-imagen"> Un informe de recepción adecuado debe incluir la siguiente información:
+          <br>
+          Fecha y hora en que se recibió la entrega
+          <br>
+          Número de compra
+          <br>
+          Nombre de la empresa de transporte
+          <br>
+          Lista de cada artículo recibido
+          <br>
+          Cantidad de cada artículo recibido
+          <br>
+          Condición de la mercancía.
+          <br>
+           El personal de recepción tiene la opción de registrar sólo la mercancía dañada o la que falta
+          Documentos complementarios (por ejemplo, comprobante de entrega o albarán), si son necesarios
+          Nombre y firma del receptor oficial verificando que las mercancías estaban en buen estado</p>
+    </div>
+
+    <div id="NotaPed" class="imagen-container">
+        <img src="../imagenes/Nota-de-pedidos.png" alt="Nota de pedido" class="zoomable">
+        <h2 class="titulo-imagen">Informacion</h2>
+    </div>
+
+    <div id="cheque" class="imagen-container">
+        <img src="../imagenes/Chequegarantizado.jpg" alt="Cheque" class="zoomable">  
+        <h2 class="titulo-imagen">Informacion</h2>  
+        <p class="titulo-imagen"> Un cheque es un documento bancario que permite a una persona o empresa (el librador) ordenar a una entidad bancaria el pago de una cantidad específica de dinero a otra persona o empresa (el beneficiario). El cheque actúa, por lo tanto, como promesa escrita y firmada de que unos fondos concretos serán transferidos de la cuenta bancaria del librador a la del beneficiario.
+        <br>
+        <br>
+        requisitos para que un cheque sea valido
+        <br>
+        Fecha de Emisión. 
+        Nombre del Beneficiario. 
+        Cantidad a Pagar. 
+        Firma del Librador. 
+        Nombre de la Entidad Bancaria. 
+        Número de Cuenta. 
+        Número de Cheque.
+        </p>  
+    </div>
+
+    <div id="echeck" class="imagen-container">
+        <img src="../imagenes/echeck2.jpg" alt="E-check" class="zoomable">
+        <h2 class="titulo-imagen">Informacion</h2>
+        <p class="titulo-imagen">es una versión digital de un cheque en impreso tradicional. Los fondos se transfieren por vía electrónica de la cuenta corriente del pagador a la cuenta del beneficiario a través de un pago con ACH. El proceso es similar al que se sigue con un cheque impreso, solo que es mucho más rápido y no existe ningún elemento físico.</p>
+    </div>
+
+    <div id="orddesp" class="imagen-container">
+        <img src="../imagenes/orddespachi.jpeg" alt="Orden de despacho" class="zoomable">
+        <h2 class="titulo-imagen">Informacion</h2>
+        <p class="titulo-imagen"> Es un documento generado cuando existen pedidos de mercancia y seran trnasportados y entregados a los clientes en una direccion especifica, el objetivo principal es informar de manera detallada la mercancia que sa sido despachada, asi como tambien ordenar las entregas de mercancias</p>
+    </div>
+
+    <div id="hojruta" class="imagen-container">
+        <img src="../imagenes/hojaderuta.jpg" alt="Hoja de ruta" class="zoomable">
+        <h2 class="titulo-imagen"> Información </h2>
+        <p class="titulo-imagen"> es un documento donde se registran todos los datos y eventos del transporte de pedidos. Presenta los datos necesarios para realizar un trabajo de transporte y entrega eficiente.
+          <br>
+          <br>
+          Los datos que debe contener este documento son: 
+          <br>
+          Fecha del transporte.
+          Datos de la empresa de reparto y del conductor.
+          Datos del remitente.
+          Datos del destinatario (nombre apellido y dirección).
+          Número de bultos.
+          Peso.
+        </p>
+    </div>
+
+    <div id="picklist" class="imagen-container">
+      <img src="../imagenes/pickinlist.png" alt="" class="zoomable">
+      <h2 class="titulo-imagen"> información</h2>
+      <p class="titulo-imagen"> es un documento que detalla los productos que se deben recoger del almacén para un pedido en particular. Este facilita el proceso de recolección de los productos y asegura que todos los artículos correctos estén incluidos en el pedido.</p>
+    </div>
+</div>
+
+<script>
+  let currentZoom = 1;
+  let isDragging = false;
+  let startX, startY, translateX = 0, translateY = 0;
+  let currentImageIndex = 0;
+  let images = [];
+
+  function mostrarImagen() {
+      let contenedores = document.getElementsByClassName('imagen-container');
+      for(let contenedor of contenedores) {
+          contenedor.style.display = 'none';
+      }
+
+      let seleccion = document.getElementById('selector-imagen').value;
+      
+      if(seleccion) {
+          document.getElementById(seleccion).style.display = 'block';
+      }
+  }
+
+  function updateImageTransform() {
+      const img = document.getElementById('imgZoom');
+      img.style.transform = `translate(${translateX}px, ${translateY}px) scale(${currentZoom})`;
+  }
+
+  function resetZoom() {
+      currentZoom = 1;
+      translateX = 0;
+      translateY = 0;
+      updateImageTransform();
+  }
+
+  function showImage(index) {
+      if (index >= 0 && index < images.length) {
+          currentImageIndex = index;
+          const modalImg = document.getElementById('imgZoom');
+          modalImg.src = images[currentImageIndex].src;
+          resetZoom();
+      }
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('imgZoom');
+      const span = document.getElementsByClassName('close')[0];
+      images = Array.from(document.getElementsByClassName('zoomable'));
+
+      // Configurar zoom con botones
+      document.getElementById('zoomIn').onclick = () => {
+          currentZoom = Math.min(currentZoom * 1.2, 5);
+          updateImageTransform();
+      };
+
+      document.getElementById('zoomOut').onclick = () => {
+          currentZoom = Math.max(currentZoom / 1.2, 0.5);
+          updateImageTransform();
+      };
+
+      document.getElementById('resetZoom').onclick = resetZoom;
+
+      // Configurar navegación
+      document.querySelector('.prev').onclick = () => {
+          showImage((currentImageIndex - 1 + images.length) % images.length);
+      };
+
+      document.querySelector('.next').onclick = () => {
+          showImage((currentImageIndex + 1) % images.length);
+      };
+
+      // Configurar arrastre de imagen
+      modalImg.onmousedown = (e) => {
+          isDragging = true;
+          startX = e.clientX - translateX;
+          startY = e.clientY - translateY;
+      };
+
+      document.onmousemove = (e) => {
+          if (isDragging) {
+              translateX = e.clientX - startX;
+              translateY = e.clientY - startY;
+              updateImageTransform();
+          }
+      };
+
+      document.onmouseup = () => {
+          isDragging = false;
+      };
+
+      // Zoom con rueda del mouse
+      modal.onwheel = (e) => {
+          e.preventDefault();
+          const delta = Math.sign(e.deltaY);
+          if (delta < 0) {
+              currentZoom = Math.min(currentZoom * 1.1, 5);
+          } else {
+              currentZoom = Math.max(currentZoom / 1.1, 0.5);
+          }
+          updateImageTransform();
+      };
+
+      // Configurar apertura de modal
+      for(let i = 0; i < images.length; i++) {
+          images[i].onclick = function() {
+              modal.style.display = 'block';
+              currentImageIndex = i;
+              showImage(i);
+          }
+      }
+
+      // Configurar cierre de modal
+      span.onclick = function() {
+          modal.style.display = 'none';
+          resetZoom();
+      }
+
+      modal.onclick = function(event) {
+          if(event.target === modal) {
+              modal.style.display = 'none';
+              resetZoom();
+          }
+      }
+
+      document.addEventListener('keydown', function(event) {
+          if(modal.style.display === 'block') {
+              switch(event.key) {
+                  case 'Escape':
+                      modal.style.display = 'none';
+                      resetZoom();
+                      break;
+                  case 'ArrowLeft':
+                      showImage((currentImageIndex - 1 + images.length) % images.length);
+                      break;
+                  case 'ArrowRight':
+                      showImage((currentImageIndex + 1) % images.length);
+                      break;
+                  case '+':
+                      document.getElementById('zoomIn').click();
+                      break;
+                  case '-':
+                      document.getElementById('zoomOut').click();
+                      break;
+              }
+          }
+      });
+  });
+</script>
+
+  <footer>
+    <p>
+    Correo electrónico: contacto@eusta.com
+  </p>
+  <p>Teléfono: +54 5465 2105</p>
+  </footer>
+</body>
+</html>
